@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="container">
+    <h2>Developers</h2>
+    	<table class="table table-striped">
+    		<thead>
+    			<tr>
+    				<th>Name</th>
+    			</tr>
+    		</thead>
+    		<tbody>
+    			<tr th:each="field: ${developerList}">
+    			<td><span th:text="${field.firstName}"></span> <span th:text="${field.lastName}"></span></td> 
+    			</tr>
+    		</tbody>
+    	</table>
+    	   	<h2>Add a developer</h2>
+    	    	<form action="/index/save" method="POST" th:obect="${developer}">
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">First name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" placeholder="FirstName" th:field="${developer.firstName}"/>
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Last name</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" placeholder="LastName" th:field="${developer.lastName}"/>
+    </div>
+  </div>
+   <div class="form-group row">
+    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+    <div class="col-sm-10">
+      <input type="email" class="form-control" placeholder="email" th:field="${developer.email}">
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+  </div>
+</form>
+    </div>
+
+  </body>
+</html>
